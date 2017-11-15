@@ -268,7 +268,7 @@ class Plan_model extends CI_Model {
                             else if ($assembly['assembly_asset_type'] != 'connected_lines')
                                 copy(ASSEMBLY_IMAGE . $assemblyImage, $tempPath . $s);
                             chmod($tempPath . $s, 0777);
-                            $assemblyImagePath = $tempPath . $s;
+                    asa       $assemblyImagePath = $tempPath . $s;
                             exec('convert ' . $assemblyImagePath . ' -resize ' . $assembly['plan_assembly_width'] . 'x' . $assembly['plan_assembly_height'] . ' ' . $assemblyImagePath);
                             exec('convert ' . $assemblyImagePath . ' -set option:distort:viewport ' . $assembly['plan_assembly_width'] . 'x' . $assembly['plan_assembly_height'] . ' -distort ScaleRotateTranslate ' . $assembly['assembly_icon_rotate'] . ' +repage ' . $assemblyImagePath);
 
@@ -288,7 +288,7 @@ class Plan_model extends CI_Model {
                         else if($assembly['assembly_asset_type'] == 'line')
                              //$tempI .= " $assemblyImagePath -geometry " . $w . "x" . $h . "+" . str_ireplace("px", "", $x1) . "+" . str_ireplace("px", "", $y1)." -composite \ ";
                            // $tempI .= "  -fill none -stroke blue -draw \"line $x1 , $y1 $x2, $y2 \"";
-echo "hi";
+							echo "hi";
                          else
                              $tempI .= " $assemblyImagePath -geometry " . $assembly['plan_assembly_width'] . "x" . $assembly['plan_assembly_height'] . "+" . str_ireplace("px", "", $assembly['plan_assembly_position_x_axis']) . "+" . str_ireplace("px", "", $assembly['plan_assembly_position_y_axis'])." -composite \ ";
                     }
